@@ -4,6 +4,7 @@ const path = require("path");
 const cookieParser = require("cookie-parser");
 const cookieSession = require("cookie-session");
 const cors = require("cors");
+require("dotenv").config();
 const Services = {
     log: require("./services/logger.service"),
     db: require("./services/database.service"),
