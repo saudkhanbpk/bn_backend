@@ -148,10 +148,10 @@ module.exports = {
         const url = process.env.DB_ADDRESS_DEV;
         mongoose
             .connect(url, {
-                useNewUrlParser: true,
-                useCreateIndex: true,
-                useFindAndModify: false,
-                useUnifiedTopology: true
+                // useNewUrlParser: true,
+                // useCreateIndex: true,
+                // useFindAndModify: false,
+                // useUnifiedTopology: true
             })
             .then(
                 function() {
