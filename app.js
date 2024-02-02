@@ -40,20 +40,17 @@ let corsOptions = {};
 
 if (!Services.env.isProduction()) {
     corsOptions = {
-        origin: "http://localhost:1337/",
+        origin: ["*"],
         credentials: true
     };
 } else {
     // TODO: change this when necessary
     corsOptions = {
-        origin: [
-            "http://localhost:1337/",
-            `https://hackathon-registration-final-xliy.vercel.app/`
-        ],
+        origin: ["*"],
         credentials: true
     };
 }
-
+/////////
 app.use(cors(corsOptions));
 // app.use(cors());
 app.use(Services.log.requestLogger);
