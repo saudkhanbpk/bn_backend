@@ -36,27 +36,26 @@ const roleRouter = require("./routes/api/role");
 const app = express();
 Services.db.connect(app);
 
-// let corsOptions = {};
+let corsOptions = {};
 
-// if (!Services.env.isProduction()) {
-//     corsOptions = {
-//         origin: [`http://${process.env.FRONTEND_ADDRESS_DEV}`],
-//         credentials: true
-//     };
-// } else {
-//     // TODO: change this when necessary
-//     corsOptions = {
-//         origin: [
-//             `https://${process.env.FRONTEND_ADDRESS_DEPLOY}`,
-//             `https://${process.env.FRONTEND_ADDRESS_BETA}`,
-//             `https://docs.mchacks.ca`
-//         ],
-//         credentials: true
-//     };
-// }
+if (!Services.env.isProduction()) {
+    corsOptions = {
+        origin: "http://localhost:1337/",
+        credentials: true
+    };
+} else {
+    // TODO: change this when necessary
+    corsOptions = {
+        origin: [
+            "http://localhost:1337/",
+            `https://hackathon-registration-final-xliy.vercel.app/`
+        ],
+        credentials: true
+    };
+}
 
-// app.use(cors(corsOptions));
-app.use(cors());
+app.use(cors(corsOptions));
+// app.use(cors());
 app.use(Services.log.requestLogger);
 app.use(Services.log.errorLogger);
 app.use(express.json());
