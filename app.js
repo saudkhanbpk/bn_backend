@@ -173,7 +173,8 @@ Services.db.connect(app);
 // app.use(cors()); // Allow CORS for all origins
 app.use(
     cors({
-        origin: "*"
+        origin: "http://localhost:1337",
+        credentials: true // This is important for handling credentials in your requests
     })
 );
 app.use(Services.log.requestLogger);
